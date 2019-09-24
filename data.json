@@ -2,31 +2,31 @@
   "dogs":[
    {
        "id": "1",
-       "naame": "Sally",
+       "name": "Sally",
        "description": "spotty dog",
        "breed":"Dalmation"
     },
     {
        "id": "2",
-       "naame": "Judy",
+       "name": "Judy",
        "description": "Black Fluffy",
        "breed":"Pomeranium"
     },
     {
        "id": "3",
-       "naame": "Roxy",
+       "name": "Roxy",
        "description": "white and black",
        "breed":"Sheep dog"
     },
     {
        "id": "4",
-       "naame": "Ruby",
+       "name": "Ruby",
        "description": "wrinkly",
        "breed":"Dougue de bordeaux"
     },
     {
        "id": "5",
-       "naame": "Poppy",
+       "name": "Poppy",
        "description": "Black naughty",
        "breed":"French Bulldog"
     }
