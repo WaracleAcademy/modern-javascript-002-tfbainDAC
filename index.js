@@ -1,7 +1,7 @@
 import {render} from './renderer';
 const things=['lemons','oranges','apples','pears'];
 render(`
-<h2>text</h2>
+<h2>change</h2>
 `);
 //console.log("This is Javascript");
 /*  This is the code which the render function is replacing
