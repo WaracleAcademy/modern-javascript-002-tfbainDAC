@@ -131,21 +131,23 @@ function render(htmlContent) {
   mainView.innerHTML = htmlContent;
 } //render(`<h2>text</h2>`);  YOu would call render like this, at the moment called from index.js
 //render(`<h1>Naahh</h1>`);
-},{}],"index.js":[function(require,module,exports) {
+},{}],"index2.js":[function(require,module,exports) {
 "use strict";
 
 var _renderer = require("./renderer.js");
 
-var things = ['lemons', 'oranges', 'apples', 'pears'];
-(0, _renderer.render)("\n<h2>change</h2>\n"); //console.log("This is Javascript");
+var things = ['lemonsz', 'orangesz', 'applesz', 'pearsz'];
+var htmlS = "<h2>change</h2>\n             <ul>";
+/*for (let i = 0; i < things.length; i++) {
+    htmlS = htmlS+ `<li>` + things[i] + `</li >`;
+}*/
 
-/*  This is the code which the render function is replacing
-const mainView = document.querySelector('#primaryView');
-mainView.innerHTML = `
-      <h2>Text</h2>
-
-`;
-*/
+things.forEach(function (current_value) {
+  // uses callback function
+  htmlS = htmlS + "<li>" + current_value + "</li >";
+});
+htmlS = htmlS + "</ul>";
+(0, _renderer.render)(htmlS);
 },{"./renderer.js":"renderer.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -349,5 +351,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
-//# sourceMappingURL=/modern-javascript-002-tfbainDAC.e31bb0bc.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index2.js"], null)
+//# sourceMappingURL=/index2.d4334c5b.js.map

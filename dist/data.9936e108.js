@@ -117,36 +117,36 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"renderer.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.render = render;
-
-//any file can use the render function due to the word export, has to be imported in the using file
-function render(htmlContent) {
-  var mainView = document.querySelector('#primaryView');
-  mainView.innerHTML = htmlContent;
-} //render(`<h2>text</h2>`);  YOu would call render like this, at the moment called from index.js
-//render(`<h1>Naahh</h1>`);
-},{}],"index.js":[function(require,module,exports) {
-"use strict";
-
-var _renderer = require("./renderer.js");
-
-var things = ['lemons', 'oranges', 'apples', 'pears'];
-(0, _renderer.render)("\n<h2>change</h2>\n"); //console.log("This is Javascript");
-
-/*  This is the code which the render function is replacing
-const mainView = document.querySelector('#primaryView');
-mainView.innerHTML = `
-      <h2>Text</h2>
-
-`;
-*/
-},{"./renderer.js":"renderer.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+})({"data.json":[function(require,module,exports) {
+module.exports = {
+  "dogs": [{
+    "id": "1",
+    "name": "Sally",
+    "description": "spotty dog",
+    "breed": "Dalmation"
+  }, {
+    "id": "2",
+    "name": "Judy",
+    "description": "Black Fluffy",
+    "breed": "Pomeranium"
+  }, {
+    "id": "3",
+    "name": "Roxy",
+    "description": "white and black",
+    "breed": "Sheep dog"
+  }, {
+    "id": "4",
+    "name": "Ruby",
+    "description": "wrinkly",
+    "breed": "Dougue de bordeaux"
+  }, {
+    "id": "5",
+    "name": "Poppy",
+    "description": "Black naughty",
+    "breed": "French Bulldog"
+  }]
+};
+},{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -349,5 +349,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
-//# sourceMappingURL=/modern-javascript-002-tfbainDAC.e31bb0bc.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","data.json"], null)
+//# sourceMappingURL=/data.9936e108.js.map

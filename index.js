@@ -1,4 +1,4 @@
-import {render} from './renderer';
+import {render} from './renderer.js';
 const things=['lemons','oranges','apples','pears'];
 render(`
 <h2>change</h2>
