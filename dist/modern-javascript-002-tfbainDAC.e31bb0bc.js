@@ -175,16 +175,34 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 // imports info from a json file and sets it to data, most modern way, to be adopted by newest browsers
 console.log(data.dogs);
 console.log(data.dogs[0]);
-var odogs = data.dogs;
+
+function getDogTemplate(dog) {
+  return "<li>".concat(dog.name, " - ").concat(dog.description, " - ").concat(dog.breed, "</li>");
+}
+
+function sortMyStuff(first, second) {
+  //  used to sort the data within the dog objects
+  if (first.breed > second.breed) {
+    return -1;
+  } else if (first.breed < second.breed) {
+    return 1;
+  } else {
+    return 0;
+  }
+}
+
+var odogs = data.dogs.sort(sortMyStuff); // sort returns two items first and second 
+
 var content = '<ul>';
 
 for (var i = 0; i < odogs.length; i++) {
   console.log(odogs[i].name);
-  content += "<li>".concat(odogs[i].name, "</li>"); // backticks allow us to add variables within the text
+  content += getDogTemplate(odogs[i]); // backticks allow us to add variables within the text
 }
 
 content += '</ul>';
-(0, _renderer.render)(content); //console.log("This is Javascript");
+(0, _renderer.render)(content); //getDogTemplate({});
+//console.log("This is Javascript");
 
 /*  This is the code which the render function is replacing
 const mainView = document.querySelector('#primaryView');
@@ -221,7 +239,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57876" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59352" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
