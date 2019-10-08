@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/WaracleAcademy/modern-javascript-002-tfbainDAC#readme",
   "dependencies": {
-    "parcel-bundler": "^1.12.3"
+    "parcel-bundler": "^1.12.4"
   }
 }

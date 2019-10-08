@@ -131,13 +131,60 @@ function render(htmlContent) {
   mainView.innerHTML = htmlContent;
 } //render(`<h2>text</h2>`);  YOu would call render like this, at the moment called from index.js
 //render(`<h1>Naahh</h1>`);
+},{}],"data.json":[function(require,module,exports) {
+module.exports = {
+  "dogs": [{
+    "id": "1",
+    "name": "Sally",
+    "description": "spotty dog",
+    "breed": "Dalmation"
+  }, {
+    "id": "2",
+    "name": "Judy",
+    "description": "Black Fluffy",
+    "breed": "Pomeranium"
+  }, {
+    "id": "3",
+    "name": "Roxy",
+    "description": "white and black",
+    "breed": "Sheep dog"
+  }, {
+    "id": "4",
+    "name": "Ruby",
+    "description": "wrinkly",
+    "breed": "Dougue de bordeaux"
+  }, {
+    "id": "5",
+    "name": "Poppy",
+    "description": "Black naughty",
+    "breed": "French Bulldog"
+  }]
+};
 },{}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _renderer = require("./renderer.js");
 
-var things = ['lemons', 'oranges', 'apples', 'pears'];
-(0, _renderer.render)("\n<h2>change</h2>\n"); //console.log("This is Javascript");
+var data = _interopRequireWildcard(require("./data.json"));
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; if (obj != null) { var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+//import * as moment from 'moment';
+// imports info from a json file and sets it to data, most modern way, to be adopted by newest browsers
+console.log(data.dogs);
+console.log(data.dogs[0]);
+var odogs = data.dogs;
+var content = '<ul>';
+
+for (var i = 0; i < odogs.length; i++) {
+  console.log(odogs[i].name);
+  content += "<li>".concat(odogs[i].name, "</li>"); // backticks allow us to add variables within the text
+}
+
+content += '</ul>';
+(0, _renderer.render)(content); //console.log("This is Javascript");
 
 /*  This is the code which the render function is replacing
 const mainView = document.querySelector('#primaryView');
@@ -146,7 +193,7 @@ mainView.innerHTML = `
 
 `;
 */
-},{"./renderer.js":"renderer.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./renderer.js":"renderer.js","./data.json":"data.json"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -174,7 +221,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50425" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57876" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -205,8 +252,9 @@ if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
         assetsToAccept.forEach(function (v) {
           hmrAcceptRun(v[0], v[1]);
         });
-      } else {
-        window.location.reload();
+      } else if (location.reload) {
+        // `location` global exists in a web worker context but lacks `.reload()` function.
+        location.reload();
       }
     }
 

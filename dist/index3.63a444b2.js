@@ -173,7 +173,7 @@ things.forEach(function (current_value) {      // uses callback function
 });*/
 // Retrieving data:
 
-var dogObj = require("./data.json"); // code for node.js to automatically read the jSON file
+var dogObj = require("./data.json"); // code for node.js to automatically read the jSON file, previous way to do this before import
 
 
 var dogString = JSON.stringify(dogObj);

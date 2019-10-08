@@ -10,7 +10,7 @@ things.forEach(function (current_value) {      // uses callback function
 
 // Retrieving data:
 
-var dogObj = require("./data.json");   // code for node.js to automatically read the jSON file
+var dogObj = require("./data.json");   // code for node.js to automatically read the jSON file, previous way to do this before import
 const dogString = JSON.stringify(dogObj);
 console.log(dogString);  // displays the entire json file
 console.log(dogObj.dogs[0].name);  // unable to get property zero of undefined or null reference 
@@ -19,7 +19,7 @@ console.log(dogObj.dogs[0].name);  // unable to get property zero of undefined o
    // htmlS += dogObj[dog]
 }*/
 
-for (var i = 0; i < dogObj.dogs.length; i++) {
+for (let i = 0; i < dogObj.dogs.length; i++) {
     console.log(dogObj.dogs[i].name);
     htmlS += `<li>` + dogObj.dogs[i].name + `</li >`;
 }
