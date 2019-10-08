@@ -141,6 +141,7 @@ var htmlS = "<h2>change</h2>\n             <ul>";
 /*for (let i = 0; i < things.length; i++) {
     htmlS = htmlS+ `<li>` + things[i] + `</li >`;
 }*/
+// using the forEach function to iterate through the array
 
 things.forEach(function (current_value) {
   // uses callback function
@@ -176,7 +177,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50425" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56120" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

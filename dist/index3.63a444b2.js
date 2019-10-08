@@ -131,6 +131,35 @@ function render(htmlContent) {
   mainView.innerHTML = htmlContent;
 } //render(`<h2>text</h2>`);  YOu would call render like this, at the moment called from index.js
 //render(`<h1>Naahh</h1>`);
+},{}],"data.json":[function(require,module,exports) {
+module.exports = {
+  "dogs": [{
+    "id": "1",
+    "name": "Sally",
+    "description": "spotty dog",
+    "breed": "Dalmation"
+  }, {
+    "id": "2",
+    "name": "Judy",
+    "description": "Black Fluffy",
+    "breed": "Pomeranium"
+  }, {
+    "id": "3",
+    "name": "Roxy",
+    "description": "white and black",
+    "breed": "Sheep dog"
+  }, {
+    "id": "4",
+    "name": "Ruby",
+    "description": "wrinkly",
+    "breed": "Dougue de bordeaux"
+  }, {
+    "id": "5",
+    "name": "Poppy",
+    "description": "Black naughty",
+    "breed": "French Bulldog"
+  }]
+};
 },{}],"index3.js":[function(require,module,exports) {
 "use strict";
 
@@ -144,14 +173,13 @@ things.forEach(function (current_value) {      // uses callback function
 });*/
 // Retrieving data:
 
-var text = localStorage.getItem("data"); // read json file from local storage
+var dogObj = require("./data.json"); // code for node.js to automatically read the jSON file
 
-var dogObj = JSON.parse(text); // parse the text to a json object
 
-/*readTextFile("./data.json", function (text) {
-    var data = JSON.parse(text);
-    console.log(data);
-});*/
+var dogString = JSON.stringify(dogObj);
+console.log(dogString); // displays the entire json file
+
+console.log(dogObj.dogs[0].name); // unable to get property zero of undefined or null reference 
 
 /*for (dogs in dogObj) {
    alert("hello");
@@ -159,13 +187,40 @@ var dogObj = JSON.parse(text); // parse the text to a json object
    // htmlS += dogObj[dog]
 }*/
 
+/*
 for (var i = 0; i < dogObj.length; i++) {
-  alert(dogObj[i].name);
-}
+    alert(dogObj.name[i]);
+}*/
 
 htmlS = htmlS + "</ul> vvv";
 (0, _renderer.render)(htmlS);
-},{"./renderer.js":"renderer.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+/* 1. gives a null return on the object
+const text = localStorage.getItem("data.json");  // read json file from local storage
+const dogObj = JSON.parse(text);            // parse the text to a json object
+const dogString = JSON.stringify(dogObj);
+alert(dogString);  //  error :the site says null
+*/
+
+/* 2.  Object doesn't support property or method 'readTextFile'
+readTextFile("./data.json", function (text) {
+    var data = JSON.parse(text);
+    console.log(data);
+});
+*/
+// 3.  Read Synchrously  - this says buffer undefined ???
+// Define JSON File
+//var fs = require("fs");
+//console.log("\n *STARTING* \n");
+// Get content from file
+//var contents = fs.readFileSync("./data.json");
+// Define to JSON type
+//var jsonContent = JSON.parse(contents);
+// Get Value from JSON
+//console.log("User Name:", jsonContent.dogs[0].name);
+//console.log("Email:", jsonContent.email);
+//console.log("Password:", jsonContent.password);
+//log("\n *EXIT* \n");
+},{"./renderer.js":"renderer.js","./data.json":"data.json"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -193,7 +248,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50425" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56407" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
