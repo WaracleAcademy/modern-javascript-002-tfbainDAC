@@ -182,15 +182,13 @@ console.log(dogString); // displays the entire json file
 console.log(dogObj.dogs[0].name); // unable to get property zero of undefined or null reference 
 
 /*for (dogs in dogObj) {
-   alert("hello");
-    //alert(dogObj[dogs]);
+    console.log(dogs.Name);
    // htmlS += dogObj[dog]
 }*/
 
-/*
-for (var i = 0; i < dogObj.length; i++) {
-    alert(dogObj.name[i]);
-}*/
+for (var i = 0; i < dogObj.dogs.length; i++) {
+  console.log(dogObj.dogs[i].name);
+}
 
 htmlS = htmlS + "</ul> vvv";
 (0, _renderer.render)(htmlS);
@@ -248,7 +246,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56407" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56579" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

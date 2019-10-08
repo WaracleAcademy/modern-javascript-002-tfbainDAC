@@ -15,14 +15,13 @@ const dogString = JSON.stringify(dogObj);
 console.log(dogString);  // displays the entire json file
 console.log(dogObj.dogs[0].name);  // unable to get property zero of undefined or null reference 
 /*for (dogs in dogObj) {
-   alert("hello");
-    //alert(dogObj[dogs]);
+    console.log(dogs.Name);
    // htmlS += dogObj[dog]
 }*/
-/*
-for (var i = 0; i < dogObj.length; i++) {
-    alert(dogObj.name[i]);
-}*/
+
+for (var i = 0; i < dogObj.dogs.length; i++) {
+    console.log(dogObj.dogs[i].name);
+}
 
 
 htmlS = htmlS + `</ul> vvv`;
