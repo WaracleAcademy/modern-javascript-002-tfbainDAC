@@ -181,8 +181,8 @@ console.log(dogString); // displays the entire json file
 
 console.log(dogObj.dogs[0].name); // unable to get property zero of undefined or null reference 
 
-/*for (dogs in dogObj) {
-    console.log(dogs.Name);
+/*for (dog in dogObj.dogs) {
+    console.log(dog.Name);
    // htmlS += dogObj[dog]
 }*/
 

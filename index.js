@@ -1,4 +1,9 @@
-import {render} from './renderer.js';
+import { render } from './renderer.js';
+//import * as moment from 'moment';
+import * as data from './data.json';  //  takes everything from a json file and sets it to data
+console.log(data.dogs);
+console.log(data.dogs[0]);
+
 const things=['lemons','oranges','apples','pears'];
 render(`
 <h2>change</h2>
