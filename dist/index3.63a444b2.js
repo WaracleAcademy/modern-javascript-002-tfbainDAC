@@ -188,6 +188,7 @@ console.log(dogObj.dogs[0].name); // unable to get property zero of undefined or
 
 for (var i = 0; i < dogObj.dogs.length; i++) {
   console.log(dogObj.dogs[i].name);
+  htmlS += "<li>" + dogObj.dogs[i].name + "</li >";
 }
 
 htmlS = htmlS + "</ul> vvv";
