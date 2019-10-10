@@ -1,5 +1,5 @@
 import { render } from './renderer.js';
-//import * as moment from 'moment';
+//import * as moment from 'moment';  not really sure what this does
 import * as data from './data.json';  // imports info from a json file and sets it to data, most modern way, to be adopted by newest browsers
 console.log(data.dogs);
 console.log(data.dogs[0]);

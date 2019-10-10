@@ -1,34 +1,29 @@
 import {render} from './renderer.js';
-const things=['lemonsz','orangesz','applesz','pearsz'];
 
-var htmlS = `<h2>changeFFF</h2>
+var htmlS = `<h2>List of Dogs</h2>
              <ul>`;
-/*
-things.forEach(function (current_value) {      // uses callback function
-    htmlS = htmlS + `<li>` + current_value + `</li >`;
-});*/
 
 // Retrieving data:
-
 var dogObj = require("./data.json");   // code for node.js to automatically read the jSON file, previous way to do this before import
 const dogString = JSON.stringify(dogObj);
 console.log(dogString);  // displays the entire json file
 console.log(dogObj.dogs[0].name);  // unable to get property zero of undefined or null reference 
-/*for (dog in dogObj.dogs) {
-    console.log(dog.Name);
-   // htmlS += dogObj[dog]
-}*/
 
-for (let i = 0; i < dogObj.dogs.length; i++) {
-    console.log(dogObj.dogs[i].name);
-    htmlS += `<li>` + dogObj.dogs[i].name + `</li >`;
-}
-
+dogObj.dogs.forEach(function (current_value) {      // uses callback function
+    console.log(current_value.name);
+    htmlS += `<li>` + current_value.name + `</li >`;
+});
 
 htmlS = htmlS + `</ul> vvv`;
 render(htmlS);
 
-/* 1. gives a null return on the object
+/*  Alternate for which works
+for (let i = 0; i < dogObj.dogs.length; i++) {
+    console.log(dogObj.dogs[i].name);
+    htmlS += `<li>` + dogObj.dogs[i].name + `</li >`;
+}*/
+
+/* 1. gives a null return on the object - think works without npm
 const text = localStorage.getItem("data.json");  // read json file from local storage
 const dogObj = JSON.parse(text);            // parse the text to a json object
 const dogString = JSON.stringify(dogObj);
@@ -54,6 +49,10 @@ readTextFile("./data.json", function (text) {
 //console.log("Password:", jsonContent.password);
 //log("\n *EXIT* \n");
 
+/*  4. foreach (dog in dogObj.dogs) {   //  this does not work is not correct format, see code above using callback
+    console.log(dog.dogs.Name);
+   // htmlS += dogObj[dog]
+}*/
 
 
 

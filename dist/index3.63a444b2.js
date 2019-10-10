@@ -165,13 +165,7 @@ module.exports = {
 
 var _renderer = require("./renderer.js");
 
-var things = ['lemonsz', 'orangesz', 'applesz', 'pearsz'];
-var htmlS = "<h2>changeFFF</h2>\n             <ul>";
-/*
-things.forEach(function (current_value) {      // uses callback function
-    htmlS = htmlS + `<li>` + current_value + `</li >`;
-});*/
-// Retrieving data:
+var htmlS = "<h2>List of Dogs</h2>\n             <ul>"; // Retrieving data:
 
 var dogObj = require("./data.json"); // code for node.js to automatically read the jSON file, previous way to do this before import
 
@@ -181,18 +175,19 @@ console.log(dogString); // displays the entire json file
 
 console.log(dogObj.dogs[0].name); // unable to get property zero of undefined or null reference 
 
-/*for (dog in dogObj.dogs) {
-    console.log(dog.Name);
-   // htmlS += dogObj[dog]
-}*/
-
-for (var i = 0; i < dogObj.dogs.length; i++) {
-  console.log(dogObj.dogs[i].name);
-  htmlS += "<li>" + dogObj.dogs[i].name + "</li >";
-}
-
+dogObj.dogs.forEach(function (current_value) {
+  // uses callback function
+  console.log(current_value.name);
+  htmlS += "<li>" + current_value.name + "</li >";
+});
 htmlS = htmlS + "</ul> vvv";
 (0, _renderer.render)(htmlS);
+/*  Alternate for which works
+for (let i = 0; i < dogObj.dogs.length; i++) {
+    console.log(dogObj.dogs[i].name);
+    htmlS += `<li>` + dogObj.dogs[i].name + `</li >`;
+}*/
+
 /* 1. gives a null return on the object
 const text = localStorage.getItem("data.json");  // read json file from local storage
 const dogObj = JSON.parse(text);            // parse the text to a json object
@@ -219,6 +214,11 @@ readTextFile("./data.json", function (text) {
 //console.log("Email:", jsonContent.email);
 //console.log("Password:", jsonContent.password);
 //log("\n *EXIT* \n");
+
+/*  4. foreach (dog in dogObj.dogs) {   //  this does not work is not correct format, see code above using callback
+    console.log(dog.dogs.Name);
+   // htmlS += dogObj[dog]
+}*/
 },{"./renderer.js":"renderer.js","./data.json":"data.json"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -247,7 +247,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56579" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53569" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -278,8 +278,9 @@ if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
         assetsToAccept.forEach(function (v) {
           hmrAcceptRun(v[0], v[1]);
         });
-      } else {
-        window.location.reload();
+      } else if (location.reload) {
+        // `location` global exists in a web worker context but lacks `.reload()` function.
+        location.reload();
       }
     }
 
