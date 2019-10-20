@@ -50,10 +50,53 @@
     "trainers": [ "Fred", "Harry" ]
     },
     {
-       "id": "2",
-       "name": "Judy",
-       "description": "Black Fluffy",
-       "breed":"Pomeranium"
+      "id": "2",
+      "name": "Judy",
+      "description": "Black Fluffy",
+      "breed": "Pomeranium",
+      "shows": [
+        {
+          "year": "2019",
+          "month": "Jan",
+          "location": "Highland Show",
+          "medals": [
+            {
+              "title": "agility small",
+              "place": "1st"
+            }
+          ],
+          "jumps": [ ]
+        },
+        {
+          "year": "2019",
+          "month": "Feb",
+          "location": "Angus Show",
+          "medals": [
+            {
+              "title": "best of breed",
+              "place": "1st"
+            },
+            {
+              "title": "obedience",
+              "place": "3rd"
+            }
+          ],
+          "jumps": [ 1,2 ]
+        },
+        {
+          "year": "2019",
+          "month": "Mar",
+          "location": "Perth Show",
+          "medals": [
+            {
+              "title": "kids favourite",
+              "place": "1st"
+            }
+          ],
+          "jumps": [ 1,2 ]
+        }
+      ],
+      "trainers": [ "Bob", "Bill", "Joe" ]
     },
     {
        "id": "3",
