@@ -1,10 +1,53 @@
 {
   "dogs":[
    {
-       "id": "1",
-       "name": "Sally",
-       "description": "spotty dog",
-       "breed":"Dalmation"
+    "id": "1",
+    "name": "Sally",
+    "description": "spotty dog",
+    "breed": "Dalmation",
+    "shows": [
+      {
+        "year": "2019",
+        "month": "Jan",
+        "location": "Highland Show",
+        "medals": [
+          {
+            "title": "best of breed",
+            "place": "1st"
+          },
+          {
+            "title": "agility",
+            "place": "2nd"
+          }
+        ],
+        "jumps": [ 2, 3, 4 ]
+      },
+      {
+        "year": "2019",
+        "month": "Feb",
+        "location": "Angus Show",
+        "medals": [
+          {
+            "title": "best of breed",
+            "place": "2nd"
+          },
+          {
+            "title": "obedience",
+            "place": "1st"
+          }
+        ],
+        "jumps": [ 2, 3, 4, 5 ]
+      },
+      {
+        "year": "2019",
+        "month": "Mar",
+        "location": "Perth Show",
+        "medals": [
+        ],
+        "jumps": [ 2 ]
+      }
+    ],
+    "trainers": [ "Fred", "Harry" ]
     },
     {
        "id": "2",

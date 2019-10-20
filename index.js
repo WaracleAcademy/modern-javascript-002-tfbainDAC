@@ -1,11 +1,10 @@
 import { render } from './renderer.js';
-//import * as moment from 'moment';  not really sure what this does
 import * as data from './data.json';  // imports info from a json file and sets it to data, most modern way, to be adopted by newest browsers
-console.log(data.dogs);
-console.log(data.dogs[0]);
+
 function getDogTemplate(dog) {
     return `<li>${dog.name} - ${dog.description} - ${dog.breed}</li>`;
 }
+
 function sortMyStuff(first,second) {  //  used to sort the data within the dog objects
     if (first.breed > second.breed){
         return -1;
@@ -26,15 +25,3 @@ for (let i = 0; i < odogs.length; i++) {
 }
 content += '</ul>'
 render(content);
-
-
-//getDogTemplate({});
-
-//console.log("This is Javascript");
-/*  This is the code which the render function is replacing
-const mainView = document.querySelector('#primaryView');
-mainView.innerHTML = `
-      <h2>Text</h2>
-
-`;
-*/
