@@ -129,25 +129,120 @@ exports.render = render;
 function render(htmlContent) {
   var mainView = document.querySelector('#primaryView');
   mainView.innerHTML = htmlContent;
-} //render(`<h2>text</h2>`);  YOu would call render like this, at the moment called from index.js
-//render(`<h1>Naahh</h1>`);
+}
 },{}],"data.json":[function(require,module,exports) {
 module.exports = {
   "dogs": [{
     "id": "1",
     "name": "Sally",
     "description": "spotty dog",
-    "breed": "Dalmation"
+    "breed": "Dalmation",
+    "shows": [{
+      "year": "2019",
+      "month": "Jan",
+      "location": "Highland Show",
+      "medals": [{
+        "title": "best of breed",
+        "place": "1st"
+      }, {
+        "title": "agility",
+        "place": "2nd"
+      }],
+      "jumps": [2, 3, 4]
+    }, {
+      "year": "2019",
+      "month": "Feb",
+      "location": "Angus Show",
+      "medals": [{
+        "title": "best of breed",
+        "place": "2nd"
+      }, {
+        "title": "obedience",
+        "place": "1st"
+      }],
+      "jumps": [2, 3, 4, 5]
+    }, {
+      "year": "2019",
+      "month": "Mar",
+      "location": "Perth Show",
+      "medals": [],
+      "jumps": [2]
+    }],
+    "trainers": ["Fred", "Harry"]
   }, {
     "id": "2",
     "name": "Judy",
     "description": "Black Fluffy",
-    "breed": "Pomeranium"
+    "breed": "Pomeranium",
+    "shows": [{
+      "year": "2019",
+      "month": "Jan",
+      "location": "Highland Show",
+      "medals": [{
+        "title": "agility small",
+        "place": "1st"
+      }],
+      "jumps": []
+    }, {
+      "year": "2019",
+      "month": "Feb",
+      "location": "Angus Show",
+      "medals": [{
+        "title": "best of breed",
+        "place": "1st"
+      }, {
+        "title": "obedience",
+        "place": "3rd"
+      }],
+      "jumps": [1, 2]
+    }, {
+      "year": "2019",
+      "month": "Mar",
+      "location": "Perth Show",
+      "medals": [{
+        "title": "kids favourite",
+        "place": "1st"
+      }],
+      "jumps": [1, 2]
+    }],
+    "trainers": ["Bob", "Bill", "Joe"]
   }, {
     "id": "3",
     "name": "Roxy",
     "description": "white and black",
-    "breed": "Sheep dog"
+    "breed": "Sheep dog",
+    "shows": [{
+      "year": "2019",
+      "month": "Jan",
+      "location": "Highland Show",
+      "medals": [{
+        "title": "best of breed",
+        "place": "1st"
+      }, {
+        "title": "agility",
+        "place": "2nd"
+      }],
+      "jumps": [2, 3, 4]
+    }, {
+      "year": "2019",
+      "month": "Feb",
+      "location": "Angus Show",
+      "medals": [{
+        "title": "best of breed",
+        "place": "2nd"
+      }, {
+        "title": "obedience",
+        "place": "1st"
+      }],
+      "jumps": [2, 3, 4, 5]
+    }, {
+      "year": "2019",
+      "month": "Mar",
+      "location": "Perth Show",
+      "medals": [],
+      "jumps": [2]
+    }],
+    "trainers": ["Fred", "Harry"]
   }, {
     "id": "4",
     "name": "Ruby",
@@ -171,13 +266,14 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; if (obj != null) { var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-//import * as moment from 'moment';  not really sure what this does
 // imports info from a json file and sets it to data, most modern way, to be adopted by newest browsers
-console.log(data.dogs);
-console.log(data.dogs[0]);
-
 function getDogTemplate(dog) {
-  return "<li>".concat(dog.name, " - ").concat(dog.description, " - ").concat(dog.breed, "</li>");
+  /*  This gets the information but does not work for nulls, would have to implement loops and format correctly
+  console.log(dog.shows[0].location);
+  console.log(dog.shows[0].medals[0].title);
+  return `<li>${dog.name} - ${dog.description} - ${dog.breed} - ${dog.shows[0].location}</li>`;
+  */
+  return "<li>".concat(dog.name, " - ").concat(dog.description, " - ").concat(dog.breed, " </li>");
 }
 
 function sortMyStuff(first, second) {
@@ -196,21 +292,14 @@ var odogs = data.dogs.sort(sortMyStuff); // sort returns two items first and sec
 var content = '<ul>';
 
 for (var i = 0; i < odogs.length; i++) {
-  console.log(odogs[i].name);
+  console.log(odogs[i].name); //console.log(odogs[i].shows[0].location); // unable to get property 0 of undefined or null reference, if no data for dog
+  //console.log(odogs[i].shows[0].medals[0].title); // if data exists displays it
+
   content += getDogTemplate(odogs[i]); // backticks allow us to add variables within the text
 }
 
 content += '</ul>';
-(0, _renderer.render)(content); //getDogTemplate({});
-//console.log("This is Javascript");
-
-/*  This is the code which the render function is replacing
-const mainView = document.querySelector('#primaryView');
-mainView.innerHTML = `
-      <h2>Text</h2>
-
-`;
-*/
+(0, _renderer.render)(content);
 },{"./renderer.js":"renderer.js","./data.json":"data.json"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -239,7 +328,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53569" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55516" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
