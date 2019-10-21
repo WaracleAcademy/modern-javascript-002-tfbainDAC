@@ -61,5 +61,5 @@ typings/
 .next
 
 # Ignore parcel output
-.cache
-dist
+.cache/
+dist/
