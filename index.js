@@ -31,4 +31,4 @@ for (let i = 0; i < odogs.length; i++) {
     content += getDogTemplate(odogs[i]);  // backticks allow us to add variables within the text
 }
 content += '</ul>'
-render(content); ///changes
+render(content); //changes
